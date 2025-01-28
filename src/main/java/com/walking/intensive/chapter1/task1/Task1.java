@@ -17,12 +17,49 @@ public class Task1 {
 //        Для собственных проверок можете делать любые изменения в этом методе
         int age = 0;
 
-        System.out.println(getAgeString(age));
+        System.out.println("Вы не родились");
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
 
-        return null; // Заглушка. При реализации - удалить
+        String ageString = "Вам " + age + " ";
+
+        if (age < 0) {
+            return "Вы не родились";
+        } else if (age < 20) {
+            switch (age) {
+                case 1:
+                    ageString += "год";
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                    ageString += "года";
+                    break;
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                default:
+                    ageString += "лет";
+                    break;
+            }
+        } else {
+            int ageRemnant = age%10;
+            switch (ageRemnant) {
+                case 1:
+                    ageString += "год";
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                    ageString += "года";
+                    break;
+                default:
+                    ageString += "лет";
+                    break;
+            }
+        }
+        return ageString;
     }
 }
