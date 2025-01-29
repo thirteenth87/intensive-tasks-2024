@@ -27,26 +27,29 @@ public class Task1 {
 
         if (age < 0) {
             return "Некорректный ввод";
-        } else if (ageRemnant <= 10 || ageRemnant >= 20) {
-
-            ageRemnant = ageRemnant % 10;
-
-            switch (ageRemnant) {
-                case 1:
-                    ageString += "год";
-                    break;
-                case 2:
-                case 3:
-                case 4:
-                    ageString += "года";
-                    break;
-                default:
-                    ageString += "лет";
-                    break;
-            }
-        } else {
-            ageString += "лет";
         }
+
+        if (ageRemnant > 10 && ageRemnant < 20) {
+            ageString += "лет";
+            return ageString;
+        }
+
+        ageRemnant = ageRemnant % 10;
+
+        switch (ageRemnant) {
+            case 1:
+                ageString += "год";
+                break;
+            case 2:
+            case 3:
+            case 4:
+                ageString += "года";
+                break;
+            default:
+                ageString += "лет";
+                break;
+        }
+
         return ageString;
     }
 }
