@@ -23,11 +23,13 @@ public class Task1 {
     static String getAgeString(int age) {
 
         String ageString = "Вам " + age + " ";
-        int ageRemnant = age%100;
+        int ageRemnant = age % 100;
+
         if (age < 0) {
             return "Некорректный ввод";
         } else if (ageRemnant <= 10 || ageRemnant >= 20) {
-            ageRemnant = ageRemnant%10;
+            ageRemnant = ageRemnant % 10;
+
             switch (ageRemnant) {
                 case 1:
                     ageString += "год";
