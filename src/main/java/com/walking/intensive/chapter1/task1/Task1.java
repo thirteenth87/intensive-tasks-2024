@@ -28,6 +28,7 @@ public class Task1 {
         if (age < 0) {
             return "Некорректный ввод";
         } else if (ageRemnant <= 10 || ageRemnant >= 20) {
+
             ageRemnant = ageRemnant % 10;
 
             switch (ageRemnant) {
