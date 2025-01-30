@@ -24,29 +24,34 @@ package com.walking.intensive.chapter1.task4;
  */
 public class Task4 {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
-        double a = 1;
-        double b = -1;
-        double c = -12;
-
+        double a = -1;
+        double b = 3;
+        double c = 4;
         System.out.println(solveEquation(a, b, c));
-
     }
 
     static String solveEquation(double a, double b, double c) {
-        if (a == 0 && b == 0) {
+        if (a == 0 && b == 0 && c == 0) {
             return "Бесконечное множество решений.";
         }
-        double discriminant = Math.pow(a, 2) - (4 * a * c);
 
-        if (discriminant < 0) {
+        if (a == 0 && b != 0) {
+            return "Количество решений: 1. Корень: " + (-c / b);
+        }
+
+        double discriminant = Math.pow(b, 2) - 4 * a * c;
+
+        if (discriminant < 0 || a == 0) {
             return "Количество решений: 0.";
         }
 
         if (discriminant == 0) {
-            return "Количество решений: 1, корень " + (-b / (2 * a));
+            return "Количество решений: 1. Корень: " + (-b / (2 * a));
         }
 
-        return "Количество решений: 2. Корни: " + ((-b - Math.sqrt(discriminant)) / (2 * a)) + ";" + ((-b + Math.sqrt(discriminant)) / (2 * a));
+        double sqrt1 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        double sqrt2 = (-b + Math.sqrt(discriminant)) / (2 * a);
+
+        return sqrt1 < sqrt2 ? "Количество решений: 2. Корни: %s;%s".formatted(sqrt1, sqrt2) : "Количество решений: 2. Корни: %s;%s".formatted(sqrt2, sqrt1);
     }
 }
