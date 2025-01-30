@@ -51,25 +51,25 @@ public class Task2 {
         int flatEntrance = (flatNumber / floorAmount / 4) + 1;
         int flatFloor = (flatNumber % (floorAmount * 4) / 4) + 1;
 
-        String flatLocation = flatNumber + " кв - " + flatEntrance + " подъезд, " + flatFloor + " этаж, ";
+        StringBuilder flatLocation = new StringBuilder(flatNumber + " кв - " + flatEntrance + " подъезд, " + flatFloor + " этаж, ");
 
         int flatAmountFloor = flatNumber % 4;
 
         switch (flatAmountFloor) {
             case 0:
-                flatLocation += "справа от лифта, вправо";
+                flatLocation.append("справа от лифта, вправо");
                 break;
             case 1:
-                flatLocation += "слева от лифта, влево";
+                flatLocation.append("слева от лифта, влево");
                 break;
             case 2:
-                flatLocation += "слева от лифта, вправо";
+                flatLocation.append("слева от лифта, вправо");
                 break;
             case 3:
-                flatLocation += " справа от лифта, влево";
+                flatLocation.append("справа от лифта, влево");
                 break;
         }
 
-        return flatLocation;
+        return flatLocation.toString();
     }
 }
